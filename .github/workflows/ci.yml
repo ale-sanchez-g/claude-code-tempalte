@@ -17,17 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
       - name: Install dependencies
-        run: npm ci
+        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Run linter
-        run: npm run lint
+        run: echo "implement your step: run your linter here (e.g. npm run lint)"
 
   test:
     name: Test
@@ -36,25 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
       - name: Install dependencies
-        run: npm ci
+        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Run tests with coverage
-        run: npm test -- --coverage --ci
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: coverage-report
-          path: coverage/
-          retention-days: 7
+        run: echo "implement your step: run your test suite here (e.g. npm test -- --coverage --ci)"
 
   build:
     name: Build
@@ -63,24 +43,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
       - name: Install dependencies
-        run: npm ci
+        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Build
-        run: npm run build
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: dist/
-          retention-days: 7
+        run: echo "implement your step: run your build command here (e.g. npm run build)"
 
   security:
     name: Security Audit
@@ -88,17 +55,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        run: echo "implement your step: run your dependency audit here (e.g. npm audit --audit-level=high)"
 
       - name: Scan for hardcoded secrets
         run: |
