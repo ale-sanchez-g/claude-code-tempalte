@@ -18,10 +18,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
+        run: |
+          echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Run linter
-        run: echo "implement your step: run your linter here (e.g. npm run lint)"
+        run: |
+          echo "implement your step: run your linter here (e.g. npm run lint)"
 
   test:
     name: Test
@@ -31,10 +33,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
+        run: |
+          echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Run tests with coverage
-        run: echo "implement your step: run your test suite here (e.g. npm test -- --coverage --ci)"
+        run: |
+          echo "implement your step: run your test suite here (e.g. npm test -- --coverage --ci)"
 
   build:
     name: Build
@@ -44,10 +48,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: echo "implement your step: run your package manager install here (e.g. npm ci)"
+        run: |
+          echo "implement your step: run your package manager install here (e.g. npm ci)"
 
       - name: Build
-        run: echo "implement your step: run your build command here (e.g. npm run build)"
+        run: |
+          echo "implement your step: run your build command here (e.g. npm run build)"
 
   security:
     name: Security Audit
@@ -56,12 +62,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Audit dependencies
-        run: echo "implement your step: run your dependency audit here (e.g. npm audit --audit-level=high)"
+        run: |
+          echo "implement your step: run your dependency audit here (e.g. npm audit --audit-level=high)"
 
       - name: Scan for hardcoded secrets
         run: |
           echo "Scanning for hardcoded secrets..."
-          if grep -rE '(password|secret|api_key|apikey|token)\s*=\s*["'\''\`][^"'\''\`]{8,}' \
+          if grep -rE '(password|secret|api_key|apikey|token)\s*=\s*["'"'"'\`][^"'"'"'\`]{8,}' \
             --include='*.ts' --include='*.js' --include='*.json' \
             --exclude-dir=node_modules --exclude-dir=.git \
             . ; then
@@ -77,7 +84,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Check CLAUDE.md exists
-        run: test -f CLAUDE.md && echo "CLAUDE.md present" || (echo "ERROR: CLAUDE.md missing" && exit 1)
+        run: |
+          test -f CLAUDE.md && echo "CLAUDE.md present" || (echo "ERROR: CLAUDE.md missing" && exit 1)
 
       - name: Validate .mcp.json is valid JSON
         run: |
